@@ -37,53 +37,78 @@ using namespace std;
 //     return 0;
 // }
 
+// void f(){
+//     string ab;
+//     cin >> ab;
+//     string a = "";
+//     a += ab[0];
+//     string b = "";
+//     int m = ab.length() / 2;
+//     if(ab.length()%2==0 && ab[m]!='0' && ab[m]<ab[0]) m=m-1;
+//     if (ab[m] == '0')
+//     {
+//         int j = m;
+//         while (ab[j] == 0)
+//         {
+//             j--;
+//         }if(j==0){
+//             cout<<-1<<endl;
+//             return;
+//         } 
+//         m = j - 1;
+//     }
+//     for (int i = 1; i < m; i++)
+//     {
+//         a += ab[i];
+//     }
+//     // if (i == ab.length())
+//     // {
+//     //     cout << -1 << endl;
+//     // }
+//     // else
+//     // {
+//         for (int j = m; j < ab.length(); j++)
+//         {
+//             b += ab[j];
+//         }
+//         // cout<<a<<"  "<<b;
+//         int x = stoi(a);
+//         int y = stoi(b);
+//         if (x < y)
+//         {
+//             cout << x << " " << y << endl;
+//         }
+//         else
+//         {
+//             cout << -1 << endl;
+//         }
+//     }
+
 void f(){
     string ab;
     cin >> ab;
-    string a = "";
-    a += ab[0];
-    string b = "";
-    int m = ab.length() / 2;
-    if(ab.length()%2==0 && ab[m]!='0' && ab[m]<ab[0]) m=m-1;
-    if (ab[m] == '0')
-    {
-        int j = m;
-        while (ab[j] == 0)
-        {
-            j--;
-        }if(j==0){
-            cout<<-1<<endl;
-            return;
-        } 
-        m = j - 1;
+    int n=ab.length();
+    if(ab[0]=='0'){
+        cout<<-1<<endl;
+        return;
     }
-    for (int i = 1; i < m; i++)
-    {
-        a += ab[i];
-    }
-    // if (i == ab.length())
-    // {
-    //     cout << -1 << endl;
-    // }
-    // else
-    // {
-        for (int j = m; j < ab.length(); j++)
-        {
-            b += ab[j];
-        }
-        // cout<<a<<"  "<<b;
-        int x = stoi(a);
-        int y = stoi(b);
-        if (x < y)
-        {
-            cout << x << " " << y << endl;
-        }
-        else
-        {
-            cout << -1 << endl;
+    for(int i=1;i<=n/2;i++){
+        string a=ab.substr(0,i);
+        string b=ab.substr(i,n-i);
+        if(b[0]!='0'){
+            if(a.length()!=b.length() || a<b){
+                cout<<a<<" "<<b<<endl;
+                return;
+            }
         }
     }
-
+    cout<<-1<<endl;
+    return ;
+    // string a = "";
+    // a += ab[0];
+    // string b = "";
+    // int m = ab.length() / 2;
+}
 
 int main(){
     int t;
